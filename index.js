@@ -6,8 +6,8 @@ const welcomeRouter = require("./routers/welcome")
 
 const server = express()
 
-server.use(morgan('short'))// this is a looger that logs request 
 server.use(helmet())// this is a simple protecter against hacker
+server.use(morgan('short'))// this is a looger that logs request 
 server.use(express.json())
 // Bring all our subroutes into the main application
 // (Remember, subroutes can have more children routers)
