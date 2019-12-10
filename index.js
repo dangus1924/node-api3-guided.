@@ -3,11 +3,15 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 const hubRouter = require("./routers/hub")
 const welcomeRouter = require("./routers/welcome")
+const logger = require('./middlware/logger')
+const agent = require('./middlware/agent')
 
 const server = express()
 
 // 3rd party middlware
 // server.use(morgan('short'))// this is a looger that logs request 
+server.use(logger)//notice we didnt call this the same as other middlwatre
+server.use(agent('insomnia'))
 server.use(helmet())// this is a simple protecter against hacker
 
 //built in middlware
